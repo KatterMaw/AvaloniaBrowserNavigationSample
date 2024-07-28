@@ -1,13 +1,13 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using ReactiveUI.Fody.Helpers;
 
 namespace AvaloniaApplication1.ViewModels;
 
-public partial class MainViewModel : ViewModelBase
+public class MainViewModel : ViewModelBase
 {
-	[ObservableProperty] private ViewModelBase _content;
+	[Reactive] public ViewModelBase Content { get; set; }
 
 	public MainViewModel()
 	{
-		_content = new AuthorizeViewModel(this);
+		Content = new AuthorizeViewModel(this);
 	}
 }
